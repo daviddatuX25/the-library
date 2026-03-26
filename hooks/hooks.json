@@ -1,0 +1,14 @@
+{
+  "Stop": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "$HOME/.claude/skills/library/hooks/on-stop-sync-honcho.sh",
+          "timeout": 30000
+        }
+      ]
+    }
+  ]
+}

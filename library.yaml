@@ -1,15 +1,66 @@
-default_dirs:
-  skills:
-    - default: .claude/skills/
-    - global: ~/.claude/skills/
-  agents:
-    - default: .claude/agents/
-    - global: ~/.claude/agents/
-  prompts:
-    - default: .claude/commands/
-    - global: ~/.claude/commands/
+# library.yaml — Master catalog for the-library
+# This file indexes all custom agentics. /library commands read and write this.
+# Entries are pointers (source + path), not inline content.
+#
+# Primitives: skills, agents, prompts, hooks, rules
+# Source types: local (in this repo), github (private repo URL)
 
-library:
-  skills: []
-  agents: []
-  prompts: []
+skills:
+  learning-check:
+    description: "Quiz me on concepts from my learning trajectory. Checks Honcho for mastery state."
+    source: local
+    path: skills/learning-check/SKILL.md
+    tags: [learning, quiz, honcho, module-1]
+
+  codebase-tour:
+    description: "Walk me through unfamiliar areas of my codebase. Picks areas via Honcho."
+    source: local
+    path: skills/codebase-tour/SKILL.md
+    tags: [learning, onboarding, honcho, module-1]
+
+agents:
+  incremental-learning:
+    description: "Active learning agent — quizzes, hands-on exercises, debt review, concept deep-dives."
+    source: local
+    path: agents/incremental-learning/agent.md
+    tags: [learning, honcho, active-session, module-1]
+
+prompts:
+  session-debrief:
+    description: "End-of-session learning summary prompt. Injected by Stop hook."
+    source: local
+    path: prompts/session-debrief.md
+    tags: [learning, honcho, debrief, module-1]
+
+  learning-nudge:
+    description: "Mid-session concept awareness nudge. Used by workflow rules."
+    source: local
+    path: prompts/learning-nudge.md
+    tags: [learning, nudge, module-1]
+
+hooks:
+  on-stop-sync-honcho:
+    description: "Auto-summarize session concepts to Honcho when session ends."
+    source: local
+    path: hooks/on-stop-sync-honcho.sh
+    event: Stop
+    tags: [honcho, auto, session-end, module-1]
+
+rules:
+  identity:
+    description: "Who I am as a developer — stack-agnostic, evolves via Honcho."
+    source: local
+    path: rules/identity.md
+    tags: [core, identity]
+
+  workflow:
+    description: "How AI works with me — phase-adaptive learning intensity, checkpoints."
+    source: local
+    path: rules/workflow.md
+    tags: [core, workflow, learning]
+
+  learning-debt-policy:
+    description: "When and how learning nudges escalate based on Honcho debt tracking."
+    source: local
+    path: rules/learning-debt-policy.md
+    tags: [learning, debt, policy, module-1]

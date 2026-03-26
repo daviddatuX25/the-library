@@ -1,0 +1,20 @@
+# Auto-generated from the-library/rules/
+# Generated: {{DATE}}
+# Do NOT edit directly. Edit rules/ in the-library and run:
+#   ~/.claude/skills/library/scripts/bootstrap.sh --agents-only
+
+{{INCLUDE rules/identity.md}}
+
+{{INCLUDE rules/workflow.md}}
+
+{{INCLUDE rules/learning-debt-policy.md}}
+
+## Honcho Integration
+- Honcho MCP is registered as user-scoped MCP (cloud: mcp.honcho.dev)
+- Query Honcho before using concepts I might not know
+- Session summaries are handled by hooks — don't prompt for them unless asked
+- Honcho is the source of truth for my learning state, not this file
+
+## External Plugins
+- Superpowers: build workflow (brainstorm → plan → execute → review)
+- Other marketplace plugins: used as-is, not duplicated here
