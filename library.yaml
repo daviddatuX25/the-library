@@ -12,6 +12,11 @@ skills:
     path: skills/learning-check/SKILL.md
     tags: [learning, quiz, honcho, module-1]
 
+  frontend-slides:
+    description: "Create presentation slides from markdown. Supports HTML output, PDF export, PowerPoint extraction."
+    source: github
+    url: https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/SKILL.md
+
   codebase-tour:
     description: "Walk me through unfamiliar areas of my codebase. Picks areas via Honcho."
     source: local
